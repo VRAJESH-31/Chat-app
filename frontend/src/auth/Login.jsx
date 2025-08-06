@@ -12,7 +12,8 @@ const LoginPage = () => {
 
     return (
         <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0d0f12] via-[#13161c] to-[#1c1f26] font-sans overflow-x-hidden">
-            <Navbar showIcons={false} />
+            <Navbar showIcons={false} 
+            />
 
             <main className="flex flex-1 justify-center items-center px-4 py-10">
                 <div className="bg-[#1f232b] border border-[#2a2f37] rounded-2xl shadow-xl p-10 w-full max-w-md transition-all duration-300">
