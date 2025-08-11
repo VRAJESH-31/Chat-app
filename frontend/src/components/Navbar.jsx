@@ -1,7 +1,10 @@
 import React from 'react'
 import { Send, Settings, UserCircle, LogOut } from 'lucide-react'
+import useAuth from "../store/useAuth.js";
 
 const Navbar = ({ showIcons = true }) => {
+  const { logout, authuser } = useAuth();
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-md shadow-lg">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -20,7 +23,11 @@ const Navbar = ({ showIcons = true }) => {
             <button className="text-gray-300 hover:text-cyan-400 transition-colors duration-300" aria-label="Profile">
               <UserCircle size={24} />
             </button>
-            <button className="text-gray-300 hover:text-red-500 transition-colors duration-300" aria-label="Logout">
+            <button
+              onClick={logout}
+              className="text-gray-300 hover:text-red-500 transition-colors duration-300"
+              aria-label="Logout"
+            >
               <LogOut size={24} />
             </button>
           </nav>
@@ -30,4 +37,4 @@ const Navbar = ({ showIcons = true }) => {
   )
 }
 
-export default Navbar
+export default Navbar;
