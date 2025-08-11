@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-const LoginPage = () => {
+const Loginpage = () => {
     const navigate = useNavigate();
 
     const handleStart = (e) => {
@@ -59,4 +59,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default Loginpage;
