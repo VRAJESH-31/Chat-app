@@ -55,7 +55,6 @@ const useAuth = create((set, get) => ({
             await axiosInstance.post("/auth/logout");
             set({ authuser: null });
             toast.success("Logged out successfully");
-            if (get().disconnectSocket) get().disconnectSocket();
         } catch (error) {
             toast.error(error.response?.data?.message || "Logout failed");
         }

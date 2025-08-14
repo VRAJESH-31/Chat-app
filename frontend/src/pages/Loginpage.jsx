@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import useAuth from "../store/useAuth"; // adjust path if needed
 import loginIllustration from "../assets/login-illustration.svg"; // add your illustration here
+import { Toaster } from "react-hot-toast"; // ✅ Import the toaster
 
 const Loginpage = () => {
     const navigate = useNavigate();
