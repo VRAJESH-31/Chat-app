@@ -29,33 +29,39 @@ const App = () => {
       <Toaster position="top-center" reverseOrder={false}
       toastOptions={{
     // Default options for all toasts
-    style: {
-      background: '#1f232b',
-      color: '#fff',
-      border: '1px solid #2a2f37',
-      padding: '12px 16px',
-      borderRadius: '10px',
-      fontSize: '14px'
-    },
-    success: {
-      iconTheme: {
-        primary: '#f97316', // orange
-        secondary: '#1f232b',
-      },
       style: {
-        background: 'linear-gradient(90deg, #f97316, #ef4444)', // orange → red
+        background: '#111827', // Aligned with Tailwind's gray-900 for consistency
         color: '#fff',
-      },
+        border: '1px solid #374151', // Tailwind's gray-700
+        padding: '16px',
+        borderRadius: '10px',
+        fontSize: '15px',
+        boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.25)', // Adds depth
+    },
+    // Specific options for different toast types
+    success: {
+        duration: 3000,
+        iconTheme: {
+            primary: '#fff', // White icon for better contrast on gradient
+            secondary: '#10B981', // A vibrant green
+        },
+        style: {
+            background: 'linear-gradient(to right, #10B981, #34D399)', // Green gradient
+            border: '1px solid #10B981',
+            boxShadow: '0 3px 8px 0 rgba(16, 185, 129, 0.3)', // Subtle green glow
+        },
     },
     error: {
-      iconTheme: {
-        primary: '#ef4444', // red
-        secondary: '#1f232b',
-      },
-      style: {
-        background: 'linear-gradient(90deg, #ef4444, #b91c1c)', // red → dark red
-        color: '#fff',
-      },
+        duration: 4000,
+        iconTheme: {
+            primary: '#fff', // White icon
+            secondary: '#EF4444', // Red-500
+        },
+        style: {
+            background: 'linear-gradient(to right, #EF4444, #F87171)', // Red gradient
+            border: '1px solid #EF4444',
+            boxShadow: '0 3px 8px 0 rgba(239, 68, 68, 0.3)', // Subtle red glow
+        },
     },
   }}
 />

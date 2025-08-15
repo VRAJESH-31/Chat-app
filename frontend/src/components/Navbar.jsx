@@ -1,5 +1,6 @@
 import React from 'react';
 import { Send, Settings, UserCircle, LogOut } from 'lucide-react';
+import { Link } from "react-router-dom";
 import useAuth from "../store/useAuth.js";
 
 const Navbar = ({ showIcons = true }) => {
@@ -8,7 +9,7 @@ const Navbar = ({ showIcons = true }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md shadow-lg">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         {/* Brand */}
         <div className="flex items-center gap-3">
           <div className="bg-orange-500 rounded-full p-2">
@@ -22,21 +23,22 @@ const Navbar = ({ showIcons = true }) => {
         {/* Navigation / Icons */}
         {showIcons && (
           <nav className="flex items-center gap-6">
-            <button 
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-400 transition-colors duration-300" 
+            <button
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-400 transition-colors duration-300"
               aria-label="Settings"
             >
               <Settings size={22} />
               <span className="hidden sm:inline text-sm font-medium">Settings</span>
             </button>
 
-            <button 
-              className="flex items-center gap-2 text-gray-300 hover:text-orange-400 transition-colors duration-300" 
+            <Link
+              to="/profile"
+              className="flex items-center gap-2 text-gray-300 hover:text-orange-400 transition-colors duration-300"
               aria-label="Profile"
             >
               <UserCircle size={22} />
               <span className="hidden sm:inline text-sm font-medium">Profile</span>
-            </button>
+            </Link>
 
             <button
               onClick={logout}

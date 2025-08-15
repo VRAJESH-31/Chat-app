@@ -59,6 +59,25 @@ const useAuth = create((set, get) => ({
             toast.error(error.response?.data?.message || "Logout failed");
         }
     },
+
+    updateProfile: async (data) => {
+                set({ isUpdatingProfile: true });
+                try {
+                    const res = await axiosInstance.put("/auth/update-profile", data);
+                    set({ authUser: res.data });
+                    toast.success("Profile updated successfully");
+                } catch (error) {
+                    if (error.response && error.response.status === 413) {
+                        toast.error("File is too large. Max 15mb allowed.");
+                    } else if (error.response?.data?.message) {
+                        toast.error(error.response.data.message);
+                    } else {
+                        toast.error("Something went wrong.");
+                    }
+                } finally {
+                    set({ isUpdatingProfile: false });
+                }
+            },
 }));
 
 export default useAuth;

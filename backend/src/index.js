@@ -8,15 +8,20 @@ import authRoutes from './routes/auth.route.js';
 import messageRoutes from './routes/message.route.js';
 
 const app = express();
-app.use(express.json());
 dotenv.config();
 
-app.use(cookieParser()); 
+// Middlewares for parsing
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true, limit: '15mb' }));
+
+// Other middlewares
+app.use(cookieParser());
 app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
 }));
 
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes)
 
