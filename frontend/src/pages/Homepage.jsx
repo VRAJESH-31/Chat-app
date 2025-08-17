@@ -9,23 +9,23 @@ const Homepage = () => {
   const { selectedUser } = useChatStore();
 
   return (
-    <div className="h-screen bg-base-200">
-      {/* Navbar at top */}
-      <Navbar />
+    <div className="h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    {/* Navbar at top */}
+    <Navbar />
 
-      {/* Main chat layout */}
-      <div className="flex items-center justify-center pt-20 px-4">
-        <div className="bg-base-100 rounded-lg shadow-cl w-full max-w-6xl h-[calc(100vh-8rem)]">
-          <div className="flex h-full rounded-lg overflow-hidden">
-            {/* Sidebar always visible */}
-            <Sidebar />
+    {/* Main chat layout */}
+    <div className="flex items-center justify-center pt-20 px-4">
+        <div className="bg-white/80 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg shadow-xl w-full max-w-6xl h-[calc(100vh-8rem)] border border-gray-200/50 dark:border-slate-700/50">
+            <div className="flex h-full rounded-lg overflow-hidden">
+                {/* Sidebar always visible */}
+                <Sidebar />
 
-            {/* Conditional rendering */}
-            {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
-          </div>
+                {/* Conditional rendering */}
+                {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
+            </div>
         </div>
-      </div>
     </div>
+</div>
   );
 };
 
