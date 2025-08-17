@@ -16,7 +16,7 @@ const Navbar = ({ showIcons = true }) => {
             <Send className="text-white h-6 w-6" />
           </div>
           <h1 className="text-2xl font-extrabold tracking-tight text-white">
-            ChatSphere
+            Chatterbox
           </h1>
         </div>
 

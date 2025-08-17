@@ -36,7 +36,7 @@ const NoChatSelected = () => {
 
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight drop-shadow-sm">
-            Welcome to <span className="bg-gradient-to-r from-rose-500 to-orange-500 bg-clip-text text-transparent">Chatty</span> 🎉
+            Welcome to <span className="bg-gradient-to-r from-rose-500 to-orange-500 bg-clip-text text-transparent">Chatterbox</span> 🎉
         </h2>
 
         {/* Subtitle */}
