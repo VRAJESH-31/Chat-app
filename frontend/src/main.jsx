@@ -5,9 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css'; // or your styles
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <BrowserRouter> {/* ✅ Wrap App */}
       <App />
     </BrowserRouter>
-  </React.StrictMode>
 );

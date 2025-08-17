@@ -4,7 +4,7 @@ import { getmessages, getUsersForSidebar, sendMessage } from '../controllers/mes
 const router = express.Router();
 
 router.get("/users", protectRoute, getUsersForSidebar);
-router.get("/send/:id", protectRoute, sendMessage);
+router.post("/send/:id", protectRoute, sendMessage);
 router.get("/:id", protectRoute, getmessages);
 
 
