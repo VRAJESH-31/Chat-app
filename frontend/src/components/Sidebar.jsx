@@ -6,24 +6,16 @@ import { Users } from "lucide-react";
 
 const Sidebar = () => {
     const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
-    const { onlineUsers = [] } = useAuth();
+    const { onlineUsers = [] } = useAuth(); // ✅ safe default
     const [showOnlineOnly, setShowOnlineOnly] = useState(false);
 
     useEffect(() => {
         getUsers();
     }, [getUsers]);
 
-    // Sort users: online first, then offline
-    const sortedUsers = [...users].sort((a, b) => {
-        const aOnline = onlineUsers.includes(a._id);
-        const bOnline = onlineUsers.includes(b._id);
-        if (aOnline === bOnline) return 0;
-        return aOnline ? -1 : 1;
-    });
-
     const filteredUsers = showOnlineOnly
-        ? sortedUsers.filter((user) => onlineUsers.includes(user._id))
-        : sortedUsers;
+        ? users.filter((user) => onlineUsers.includes(user._id))
+        : users;
 
     if (isUsersLoading) return <SidebarSkeleton />;
 
