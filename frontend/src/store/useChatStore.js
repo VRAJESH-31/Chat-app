@@ -76,6 +76,15 @@ export const useChatStore = create(
                 if (!socket) return;
                 socket.off("newMessage");
             },
+
+            connectSocket: (authuser) => {
+                if (!authuser?._id) return null;
+                return io("https://chat-app-yqx9.onrender.com/api", {
+                    transports: ["websocket"],
+                    withCredentials: true,
+                    query: { userId: authuser._id }
+                });
+            }
         }),
         {
             name: "chat-app-store", // key in localStorage
@@ -86,11 +95,3 @@ export const useChatStore = create(
         }
     )
 );
-
-const socket = io("https://chat-app-yqx9.onrender.com/api", {
-    transports: ["websocket"],
-    withCredentials: true,
-    query: { userId: authuser._id }
-});
-
-export default useChatStore;
