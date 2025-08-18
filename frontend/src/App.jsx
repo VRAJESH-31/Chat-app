@@ -8,7 +8,7 @@ import Profilepage from './pages/Profilepage';
 import Landing from './pages/Landing';
 import useAuth from "./store/useAuth";
 import { Loader } from 'lucide-react';
-import { Toaster } from 'react-hot-toast'; // ✅ Import Toaster
+import { Toaster } from 'react-hot-toast'; 
 
 const App = () => {
   const { authuser, checkAuth, isCheckingAuth } = useAuth();
