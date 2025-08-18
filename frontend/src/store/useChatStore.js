@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import toast from "react-hot-toast";
 import axiosInstance from "../lib/axios";
+import { io } from "socket.io-client";
 
 export const useChatStore = create(
     persist(
@@ -85,5 +86,11 @@ export const useChatStore = create(
         }
     )
 );
+
+const socket = io("https://chat-app-yqx9.onrender.com", {
+    transports: ["websocket"],
+    withCredentials: true,
+    query: { userId: authuser._id }
+});
 
 export default useChatStore;
