@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const MessageInput = () => {
     const [text, setText] = useState("");
     const [imagePreview, setImagePreview] = useState(null);
+    const [isSending, setIsSending] = useState(false);
     const fileInputRef = useRef(null);
 
     const { sendMessage } = useChatStore();
@@ -40,12 +41,15 @@ const MessageInput = () => {
 
         // Only send via API – backend handles socket emit
         try {
+            setIsSending(true);
             await sendMessage(messageData);
             setText("");
             setImagePreview(null);
             if (fileInputRef.current) fileInputRef.current.value = "";
         } catch {
             toast.error("Failed to send message");
+        } finally {
+            setIsSending(false);
         }
     };
 
