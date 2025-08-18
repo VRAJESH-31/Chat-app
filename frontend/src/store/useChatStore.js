@@ -79,7 +79,7 @@ export const useChatStore = create(
 
             connectSocket: (authuser) => {
                 if (!authuser?._id) return null;
-                return io("https://chat-app-yqx9.onrender.com/api", {
+                return io("https://chat-app-yqx9.onrender.com", {
                     transports: ["websocket"],
                     withCredentials: true,
                     query: { userId: authuser._id }
