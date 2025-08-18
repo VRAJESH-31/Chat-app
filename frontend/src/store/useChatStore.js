@@ -87,7 +87,7 @@ export const useChatStore = create(
     )
 );
 
-const socket = io("https://chat-app-yqx9.onrender.com", {
+const socket = io("https://chat-app-yqx9.onrender.com/api", {
     transports: ["websocket"],
     withCredentials: true,
     query: { userId: authuser._id }
