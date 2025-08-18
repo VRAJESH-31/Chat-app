@@ -44,3 +44,9 @@ io.on("connection", (socket) => {
 });
 
 export { io, app, server };
+
+const socket = io("https://chat-app-yqx9.onrender.com", {
+    transports: ["websocket"],
+    withCredentials: true,
+    query: { userId: authuser._id }
+});
