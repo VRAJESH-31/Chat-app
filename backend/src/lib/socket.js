@@ -8,7 +8,10 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ["https://chat-app-pearl-phi.vercel.app"],
+        origin: [
+            "http://localhost:5173",
+            "https://chat-app-pearl-phi.vercel.app"
+        ],
         methods: ["GET", "POST"],
         credentials: true,
     },
